@@ -1,7 +1,17 @@
-{
-  id: @product.id,
-  name: @product.name,
-  description: @product.description,
-  price: @product.price,
-  image_url: @product.image_url
-}
+@products.map do |product|
+  render partial: "product.json.jb", locals: {product: product}
+end
+
+
+#  {
+#   id: product.id,
+#   name: product.name,
+#   description: product.description,
+#   price: product.price,
+#   image_url: product.image_url
+#   # is_discounted:product.is_discounted?
+#   # # tax: product.tax, 
+#   # # total: product.total 
+  
+# }
+# end 
