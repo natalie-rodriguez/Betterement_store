@@ -20,25 +20,25 @@ class Api::ProductsController < ApplicationController
 
       )
   
-    @product.save
-    render 'create.json.jb'
-  end
+   if @product.save
+      render 'show.json.jb'
+    else
+      render 'errors.json.jb', status: :unprocessible_entity
+    end
 
   def update
     #find in database then update 
     @product = Product.find_by(id: params[:id])
-    @product.update(
-      name: params[:input_name] || @product.name,
-      price: params[:input_price] || @product.price,
-      image_url: params[:input_image_url] || @product.image_url,
-      description: params[:input_description] || @product.description
-    )
-    render 'show.json.jb'
+    p "here is the price"
+    p params[:price]
+    if @product.update(name: params[:name] || @product.name,
+         price: params[:price] || @product.price,
+         image_url: params[:image_url] || @product.image_url,
+         description: params[:description] || @product.description
+        )
+      render 'show.json.jb'
+    else
+      render 'errors.json.jb', status: :unprocessible_entity
+    end
   end
-
-  # def destroy
-  #   the_id = Params[:id]
-  #   render 'destroy.json.jb'
-  # end 
-
 end
