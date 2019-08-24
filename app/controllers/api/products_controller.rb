@@ -14,8 +14,9 @@ class Api::ProductsController < ApplicationController
     if params[:discount]
       @products = @products.where("price < ?", 10)
     end
-
-    if params[:sort] && params[:sort_order]
+      #params sort has the value of price 
+    if params[:sort] && params[:sort_order] 
+      #ascending this gets sorted in the database 
       @products = @products.order(params[:sort] => params[:sort_order])
     else
       @products = @products.order(:id => :asc)
