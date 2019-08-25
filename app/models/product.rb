@@ -1,6 +1,7 @@
 class Product < ApplicationRecord
   #active record method 
   belongs_to :supplier 
+  has_many :images
 
 
   validates :name, presence: true

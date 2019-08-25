@@ -6,8 +6,24 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-25.times do
-  product = Product.new(price: rand(50), name: FFaker::Product.product, description: FFaker::HipsterIpsum.paragraph, image_url: FFaker::Image.url)
+# 25.times do
+#   product = Product.new(price: rand(50), name: FFaker::Product.product, description: FFaker::HipsterIpsum.paragraph, image_url: FFaker::Image.url)
 
-  product.save
+#   product.save
+# end 
+
+# image = Image.new(url: "https://www.westelm.com/weimgs/ab/images/wcm/products/201933/0005/faux-fiddle-leaf-fig-plant-1-c.jpg", product_id: 1)
+
+#changing the pictures 
+
+products = Product.all 
+2.times do 
+  products.each do |product|
+    image = Image.new(url: FFaker::Image.url, product_id: products.sample.id)
+    image.save!
+  end
 end
+
+#orders of magnitude 
+#loop through products and make two images 
+#how will i assign images w/o faker 

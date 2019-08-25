@@ -3,14 +3,13 @@
   name: product.name,
   price: product.price,
   # image_url: product.image_url,
-  image_url: product.image_url,
+  images_url: product.images,
   description: product.description,
   created_at: product.created_at,
   tax: product.tax,
   # supplier_name: product.supplier.name,
   total: product.total,
-  # categories: product.categories,
-  # formatted: {
-  #   price: number_to_currency(product.price)
+  formatted: {
+    price: number_to_currency(product.price)
   }
-# }
+}

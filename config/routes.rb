@@ -11,5 +11,8 @@ Rails.application.routes.draw do
     patch '/products/:id' => "products#update"
     delete '/recipes/id' => "products#destroy"
 
+    #sign up 
+    post "/users" => "users#create"
+
   end
 end
