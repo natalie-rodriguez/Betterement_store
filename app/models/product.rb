@@ -1,7 +1,9 @@
 class Product < ApplicationRecord
   #active record method 
+  has_many :orders
   belongs_to :supplier 
   has_many :images
+  has_many :category_products
 
 
   validates :name, presence: true
