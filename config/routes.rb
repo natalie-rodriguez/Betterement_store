@@ -14,5 +14,8 @@ Rails.application.routes.draw do
     #sign up 
     post "/users" => "users#create"
 
+   #session when you log in/generate a token
+    post "/sessions" => "sessions#create"
+
   end
 end
