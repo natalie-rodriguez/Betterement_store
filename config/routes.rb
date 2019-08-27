@@ -4,12 +4,14 @@ Rails.application.routes.draw do
 
   # EXAMPLE JSON ROUTE WITH API NAMESPACE
   namespace :api do
-    get "/products" => "products#index"
+    get '/products' => 'products#index'
     get '/products/:id' =>  'products#show'
     post 'products/' => 'products#create'
     #create a new product 
-    patch '/products/:id' => "products#update"
-    delete '/recipes/id' => "products#destroy"
+
+
+    patch '/products/:id' => 'products#update'
+    # delete '/products/id' => "products#destroy"
 
     #sign up 
     post "/users" => "users#create"
@@ -17,5 +19,6 @@ Rails.application.routes.draw do
    #session when you log in/generate a token
     post "/sessions" => "sessions#create"
 
+    post '/orders' => 'orders#create'
   end
 end
