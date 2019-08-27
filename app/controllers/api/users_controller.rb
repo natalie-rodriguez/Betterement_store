@@ -1,11 +1,13 @@
 class Api::UsersController < ApplicationController
-  #this is making a new user 
+  #this is making a new user sign up 
+  #in the route file this should create a post create action 
+  # 
   def create
     user = User.new(
       name: params[:name],
       email: params[:email],
       password: params[:password],
-      #saves as password digest 
+      #line 9 saves as password digest bc of bycrypt    
       password_confirmation: params[:password_confirmation]
     )
 

@@ -1,7 +1,8 @@
 class Api::SessionsController < ApplicationController
   def create
-    p Rails.application.credentials.fetch(:secret_key_base)
-    
+    #this is how a customer logs in take the email and takes the password makes sure its good and then makes a JWT token and sends it back 
+
+    p ENV["MASTER_KEY"]
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       jwt = JWT.encode(
@@ -9,7 +10,8 @@ class Api::SessionsController < ApplicationController
           user_id: user.id, # the data to encode
           exp: 24.hours.from_now.to_i # the expiration time
         },
-        Rails.application.credentials.fetch(:secret_key_base), 'HS256'
+        
+        ENV["MASTER_KEY"], 'HS256'
         # the secret key
         # the encryption algorithm
       )
@@ -19,3 +21,11 @@ class Api::SessionsController < ApplicationController
     end
   end
 end
+
+
+#take JWT from insomnia to log in
+# look at application_controller.rb 
+#customer session is 24 hours long 
+
+
+

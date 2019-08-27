@@ -51,3 +51,4 @@ gem 'ffaker'
 gem 'rack-cors'
 gem 'jb'
 gem 'seed_dump' #
+gem 'figaro'
