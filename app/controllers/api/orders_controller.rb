@@ -1,11 +1,12 @@
 class Api::OrdersController < ApplicationController
 
   def index
-
-    @orders = Order.all 
-    @orders = current_user.orders
-    render 'index.json.jb'
-  
+if current_user #if you are logged in
+      @orders = current_user.orders
+      render 'index.json.jb'
+    else #if you are not logged in 
+      render json: [], status: :unauthorized
+    end
   end
 
   def show 
