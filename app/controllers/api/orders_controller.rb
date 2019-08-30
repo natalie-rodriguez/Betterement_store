@@ -1,7 +1,7 @@
 class Api::OrdersController < ApplicationController
 
   def index
-if current_user #if you are logged in
+    if current_user #if you are logged in
       @orders = current_user.orders
       render 'index.json.jb'
     else #if you are not logged in 
