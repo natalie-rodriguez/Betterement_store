@@ -28,8 +28,7 @@ class Api::OrdersController < ApplicationController
     end
     # add up all the cost * quantities for a subtotal
     total = subtotal + tax
-   
-    p total 
+    
 
         @order = Order.new(
       subtotal: subtotal,

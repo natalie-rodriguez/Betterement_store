@@ -52,3 +52,6 @@ gem 'rack-cors'
 gem 'jb'
 gem 'seed_dump' #
 gem 'figaro'
+
+# gem 'omniauth'
+# gem 'omniauth-facebook'
