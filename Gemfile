@@ -53,5 +53,8 @@ gem 'jb'
 gem 'seed_dump' #
 gem 'figaro'
 
+# gem 'stripe'
+
+
 # gem 'omniauth'
 # gem 'omniauth-facebook'

@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
   #active record method 
   has_many :orders
-  belongs_to :supplier 
+  # belongs_to :supplier 
   has_many :images
   has_many :category_products
   has_many :categories, through: :category_products
@@ -32,14 +32,13 @@ class Product < ApplicationRecord
     price + tax
   end
 
-  # def image_url
-  #   if images.length > 0
-  #     return images[0].url
-  #   else
-  #     return "https://www.hutchinsontires.com/helpers/img/no_image.jpg"
-  #   end
-  # end
+  def image_url
+    if images.length > 0 
+      return images[0].url
+    else 
+      return "https://www.petmd.com/sites/default/files/do_dogs_feel_sadness.jpg"
+    end
+  end
 end
 
 
-#api for coupons stripe

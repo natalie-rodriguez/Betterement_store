@@ -1,7 +1,7 @@
 class Api::ProductsController < ApplicationController
   
     # before_action :authenticate_admin, except: [:index, :show]
-  before_action :authenticate_admin, only: [:create, :update]
+  # before_action :authenticate_admin, only: [:create, :update]
 
 
   # before_action :authenticate_user, only: [:show]

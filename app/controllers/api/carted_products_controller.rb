@@ -11,10 +11,11 @@ class Api::CartedProductsController < ApplicationController
       quantity: params[:quantity]
     )
 
-    @carted_product.save
+    @carted_product.save!
     render 'show.json.jb'
   end
   def index
+    p current_user.carted_products
     @carted_products = CartedProduct.where(user_id: current_user.id).where(status: 'carted')
     render 'index.json.jb'
   end

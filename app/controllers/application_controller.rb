@@ -4,24 +4,24 @@ class ApplicationController < ActionController::Base
 #current user take JWT or give you nil 
 
   def current_user
-    
-    auth_headers = request.headers['Authorization']
-    if auth_headers.present? && auth_headers[/(?<=\A(Bearer ))\S+\z/]
-      token = auth_headers[/(?<=\A(Bearer ))\S+\z/]
-      #lines 6 -8 is the process of seeing who is logged in 
-      begin
-        #can't decode a password but we can decode a token 
-        decoded_token = JWT.decode(
-          token,
-          ENV["MASTER_KEY"],
-          true,
-          { algorithm: 'HS256' }
-        )
-        User.find_by(id: decoded_token[0]["user_id"])
-      rescue JWT::ExpiredSignature
-        nil
-      end
-    end
+    User.first
+    # auth_headers = request.headers['Authorization']
+    # if auth_headers.present? && auth_headers[/(?<=\A(Bearer ))\S+\z/]
+    #   token = auth_headers[/(?<=\A(Bearer ))\S+\z/]
+    #   #lines 6 -8 is the process of seeing who is logged in 
+    #   begin
+    #     #can't decode a password but we can decode a token 
+    #     decoded_token = JWT.decode(
+    #       token,
+    #       ENV["MASTER_KEY"],
+    #       true,
+    #       { algorithm: 'HS256' }
+    #     )
+    #     User.find_by(id: decoded_token[0]["user_id"])
+    #   rescue JWT::ExpiredSignature
+    #     nil
+    #   end
+    # end
   end
 
   helper_method :current_user
