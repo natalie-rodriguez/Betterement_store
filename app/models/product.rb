@@ -32,13 +32,13 @@ class Product < ApplicationRecord
     price + tax
   end
 
-  def image_url
-    if images.length > 0 
-      return images[0].url
-    else 
-      return "https://www.petmd.com/sites/default/files/do_dogs_feel_sadness.jpg"
-    end
-  end
+  # def image_url
+  #   if images.length > 0 
+  #     return images[0].url
+  #   else 
+  #     return "https://www.petmd.com/sites/default/files/do_dogs_feel_sadness.jpg"
+  #   end
+  # end
 end
 
 
